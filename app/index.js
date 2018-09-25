@@ -39,32 +39,32 @@
 
 // );
 
-var React = require('react');
-var ReactDOM = require('react-dom');
-require('./index.css');
-var PropTypes = require('prop-types');
+// var React = require('react');
+// var ReactDOM = require('react-dom');
+// require('./index.css');
+// var PropTypes = require('prop-types');
 
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Team Roster!</h1>
-        <ul>
-          {this.props.userList.map(function(name){
-            return <li key={name}> {name} </li>;
-          })}
-        </ul>  
-      </div>
-    )
-  }
-}
-App.propTypes = {
-  userList: PropTypes.array.isRequired
-}
-ReactDOM.render(
-  <App userList={["Manny", "Eric", "Josh", "Sheldon"]} />,
-  document.getElementById('app')
-);
+// class App extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <h1>Team Roster!</h1>
+//         <ul>
+//           {this.props.userList.map(function(name){
+//             return <li key={name}> {name} </li>;
+//           })}
+//         </ul>  
+//       </div>
+//     )
+//   }
+// }
+// App.propTypes = {
+//   userList: PropTypes.array.isRequired
+// }
+// ReactDOM.render(
+//   <App userList={["Manny", "Eric", "Josh", "Sheldon"]} />,
+//   document.getElementById('app')
+// );
 
 // where is this function invoked
 
@@ -125,4 +125,99 @@ ReactDOM.render(
 // jim.sayName();
 // jim.mother.sayName(); --> left of the dot so the this will be mother and thats what the this keyword will be referencing
 
+/*
 
+plain function in global scope
+call the function in the context of stacey
+
+all functions have a .Call method
+this will reference stacey
+
+explicit stating this keyword is
+
+.call pass one by one
+.apply pass in an array
+.bind creates a new funciton instead of invoking the function immediately
+*/
+
+// var sayName = function(lang1, lang2, lang3){
+//   console.log('My name is ' + this.name + ' and i know'+ lang1 + ' ' + lang2 + ' ' + lang3);
+// };
+
+// var stacey = {
+//   name: 'Stacey',
+//   age: 34
+    
+//   };
+
+// var languages = ['Js', 'Ruby', 'Python'];
+
+//sayName.call(stacey,languages[0], languages[1], languages[2]);
+
+//sayName.apply(stacey, languages);
+
+//  var newFn = sayName.bind(stacey,languages[0], languages[1], languages[2]);
+// newFn();
+//.bind returns a new function
+
+
+// New Binding
+// when function invoked new binding
+// keyword the this keyword inside the funciton is bound to the new object 
+// being constructed
+// var Animal = function(color, name, type){
+//   // js will create new object for us and save as {}
+//   this.color = color;
+//   this.name = name;
+//   this.type = type
+// };
+
+// var zebra = new Animal('Black and White', 'Zorro', 'Zebra');
+
+
+// Window binding
+
+// var sayAge = function(){
+//   'use strict';
+//   console.log(this.age);
+// };
+// var me = {
+//   age: 25
+// };
+
+// sayAge();
+
+
+
+
+
+var React = require('react');
+var ReactDOM = require('react-dom');
+require('./index.css');
+
+
+// Move the below to a components folder
+
+// we only want the index.js file to REQUIRE THE MAIN APP and render it
+var App = require('./components/App');
+
+
+// class App extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <h1>Team Roster!</h1>
+//         <ul>
+//           {this.props.userList.map(function(name){
+//             return <li key={name}> {name} </li>;
+//           })}
+//         </ul>  
+//       </div>
+//     )
+//   }
+// }
+
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+);
