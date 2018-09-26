@@ -64,7 +64,7 @@ class PlayerInput extends React.Component {
     /**
      * by using 'this.setState' you are telling this function to update the state above and re-render with 
      * the updated state
-     * @param {*} event 
+     * 
      */
     handleChange(event) {
         // event.target property returns the element that triggered the event
@@ -82,7 +82,7 @@ class PlayerInput extends React.Component {
 
     /**
      * This function deals with what happens when you press the submit button on the form
-     * @param {*} event 
+     * 
      */
     handleSubmit(event) {
         // preventDefault method cancel the vent if it is cancelable, 
@@ -90,7 +90,7 @@ class PlayerInput extends React.Component {
         // Clocking on "submit" button, prevent it from submitting a form etc
         event.preventDefault();
 
-        //On submit is just a prop!!!!!!!! which has the function
+        // On submit is just a prop!!!!!!!! which has the function
         // handleSubmit(id, username) being passed to this component
         // which grabs the passed along prop id and also the current states username
         // which you will have entered into this component
@@ -176,7 +176,6 @@ class Battle extends React.Component {
         }
     render() {
         var match = this.props.match;
-        console.log(match);
         var playerOneName = this.state.playerOneName;
         var playerTwoName = this.state.playerTwoName;
         var playerOneImage = this.state.playerOneImage;
@@ -249,6 +248,7 @@ class Battle extends React.Component {
                         search: `?playerOneName=` + playerOneName + '&playerTwoName=' + playerTwoName                       
                     }}>
                     Battle
+                
                 </Link>}
             </div>
         )
