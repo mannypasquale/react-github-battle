@@ -4,10 +4,13 @@
   "description": "Project for TylerMcGinnis.com's fundamental course.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open",
+    "build": "NODE_ENV='production' webpack",
+    "firebase-init": "firebase login && firebase init",
+    "deploy": "npm run build && firebase deploy"
   },
-  "author": "Tyler McGinnis",
-  "license": "MIT",
+  "author": "Manny",
+  "license": "",
   "babel": {
     "presets": [
       "env",
@@ -16,6 +19,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "firebase-tools": "^5.1.1",
     "prop-types": "^15.6.2",
     "query-string": "^6.1.0",
     "react": "^16.0.0-alpha.5",
